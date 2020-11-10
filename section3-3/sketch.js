@@ -5,10 +5,10 @@ function setup(){
 
   for(let i = 2000; i <= 2100; i++){
     if(isLeapYear(i)){
-      console.log(i + "年はうるう年です");
+      //console.log(i + "年はうるう年です");
     }
     else{
-      console.log(i + "年はうるう年ではありません");
+      //console.log(i + "年はうるう年ではありません");
     }
   }
 }
@@ -25,8 +25,16 @@ function isLeapYear(y){
 }
 
 function daysInYear(y){
-  // BLANK[1]
+  let count = 0;
+  for(let i = 1; i < 13; i++){
+    count += daysInMonth(y, i);
+  }
+  return count ;
 }
+//検証用
+console.log(daysInYear(2100));
+console.log(daysInYear(2400));
+
 
 function daysInMonth(y, m){
   if(m == 2){
@@ -49,9 +57,15 @@ function dayOfYear(y, m, d){
 }
 
 function dayOfWeek(y, m, d){
-  // BLANK[2]
+  let count = 0;
+  let base = 0;//1950/1/1
+  for(let i = 1950; i < y; i++){
+    count += daysInYear(i);
+  }
+   count += dayOfYear(y, m, d);
+   return (base-1 + count) % 7;
 }
-
+console.log(dayOfWeekAsString(dayOfWeek(2000, 5, 7)));
 function dayOfWeekAsString(dow){
   const a = ["日", "月", "火", "水", "木", "金", "土", "日"];
   return a[dow];
