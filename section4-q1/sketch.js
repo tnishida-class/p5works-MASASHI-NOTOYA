@@ -1,6 +1,11 @@
 // 練習問題「心臓の鼓動のように大きくなったり小さくなったりする円」
 let count;
-let cycle;
+let cycle=100;
+let size;
+let width=200;
+let height=200;
+
+let up_flag=1;
 
 function setup(){
   createCanvas(200, 200);
@@ -10,7 +15,25 @@ function setup(){
 
 function draw(){
   background(160, 192, 255);
-  count = (count + 1) % cycle;
-  // BLANK[1]
-  ellipse(width / 2, height / 2, size);
+
+    if(up_flag===1)//up
+    {
+        count = (count + 1) % cycle;
+        if((count+1)===cycle)
+        {
+          up_flag=0;
+        }
+    }
+    else//down
+    {
+        count = (count - 1) % cycle;
+        if((count-1)===0)
+        {
+          up_flag=1;
+        }
+    }
+
+    size=count;
+
+    ellipse(width / 2, height / 2, size);
 }
