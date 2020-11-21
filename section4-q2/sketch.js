@@ -11,6 +11,8 @@ function setup(){
 
 function draw(){
   background(160, 192, 255);
+  noStroke();
+  fill(255, 255, 0);
   star(x, y, 20, angle);// BLANK[2] (hint: 作った star 関数を使います)
   angle++;
   x += vx;
@@ -33,6 +35,12 @@ function star(cx, cy, r, angle){
   }
   endShape(CLOSE);
 }
+
+/*オプション「クリックした位置から流れ星」
+function mouseClicked(){
+  x = mouseX;
+  y = mouseY;
+}*/
 
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
