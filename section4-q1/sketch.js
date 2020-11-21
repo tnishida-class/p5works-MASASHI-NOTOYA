@@ -1,6 +1,6 @@
 // 練習問題「心臓の鼓動のように大きくなったり小さくなったりする円」
 let count;
-let cycle=100;
+let cycle;
 let size;
 let width=200;
 let height=200;
@@ -34,6 +34,8 @@ function draw(){
     }
 
     size=count;
+
+    //count = mouseIsPressed ? count * 3 : count ;
 
     ellipse(width / 2, height / 2, size);
 }
